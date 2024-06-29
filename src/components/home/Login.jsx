@@ -1,13 +1,16 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Login = () => {
 	const router = useRouter();
+	const [logmount, setLogmount] = useState(false);
+	const userAuthToken = process.env.NEXT_PUBLIC_USER_AUTH_TOKEN;
+	// console.log(userAuthToken);
 	const [credentials, setCredentials] = useState({ email: '', password: '' });
 
-// Form Submission Handle and fetch api which is given and get token;
+	// Form Submission Handle and fetch api which is given and get token;
 	const handleFormSubmit = async e => {
 		e.preventDefault();
 		try {
@@ -22,22 +25,39 @@ const Login = () => {
 				}),
 			});
 			const res = await response.json();
-			console.log(res.token);
-			if (res) {
+			// console.log(res.token);
+			if (res.token === userAuthToken) {
+				console.log('djfldfjo');
 				localStorage.setItem('loginToken', res.token);
+				localStorage.setItem('userAuth', true);
 				router.push('/homepage');
 			} else {
-				alert(res.error);
+		alert(`${res.error} || Wrong Credintials Please try again`);
+				
 			}
 		} catch (error) {
-            console.log(`login errror${error.message}`);
-        }
+			console.log(`login errror${error.message}`);
+		}
 	};
-    //form inputs data control onHandleChange
+	//form inputs data control onHandleChange
 	const handleChange = e => {
 		setCredentials({ ...credentials, [e.target.name]: e.target.value });
-		console.log(credentials);
+		// console.log(credentials);
 	};
+	useEffect(() => {
+		// console.log(localStorage.getItem('userAuth'));
+		if (JSON.parse(localStorage.getItem('userAuth')) === true) {
+			console.log('ehti wokr');
+			setLogmount(true);
+		} else {
+			console.log('No userAuth is there');
+			setLogmount(false);
+		}
+	}, [logmount]);
+
+	if (logmount) {
+		router.push('/homepage');
+	}
 	return (
 		<>
 			<Head>
