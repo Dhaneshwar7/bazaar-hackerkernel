@@ -98,7 +98,7 @@ const Navbar = () => {
 					) : (
 						<> */}
 					<Link
-						href={'/login'}
+						href={'/'}
 						className="text-white mr-5 cursor-pointer hover:text-gray-200 flex items-center"
 					>
 						Login

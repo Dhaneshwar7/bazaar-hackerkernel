@@ -8,16 +8,16 @@ function Footer() {
 			<div className=" container mx-auto text-white flex p-3 flex-col md:flex-row items-center">
 				<Link
 					href={'/'}
-					className="flex title-font font-extrabold items-center  uppercase text-gray-100"
+					className="flex title-font font-extrabold items-center h-fit uppercase text-gray-100"
 				>
-					<Image alt="Navbar Logo" src={'/HKLogo.png'} width={60} height={60} />
-					<p className="leading-5 text-lg mx-2 whitespace-nowrap ">
+					<Image alt="Navbar Logo" src={'/HKLogo.png'} width={60} height={60} className='scale-50'  />
+					<p className="leading-5 text-base md:text-lg mx-2 whitespace-nowrap ">
 						<i>BAZZAR HK</i>
 					</p>
 				</Link>
-				<div className="text-sm w-full text-gray-100 sm:ml-4 flex flex-col md:flex-row items-center gap-1 justify-between sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-					<h3>Copyright © 2024 BazaarEcommerce HackerKernel</h3>
-					<h3 className="px-14 ml-2">
+				<div className="text-sm w-full text-gray-100 sm:ml-4 flex flex-col md:flex-row items-center gap-1 justify-between sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-0 md:mt-4">
+					<h3 className='text-center'>Copyright © 2024 <br /> BazaarEcommerce HackerKernel</h3>
+					<h3 className="px-5 ml-2 text-center">
 						Task Developed by{'  '}
 						<a
 							className="text-white text-base px-2 py-1 md:bg-slate-900 bg-slate-900 rounded"
