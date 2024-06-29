@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import Custom404 from '../404';
 
-const index = () => {
+const Homepage = () => {
 	//for checking user availbale or not !! Show 404 page
 	const [mounted, setMounted] = useState(false);
 
@@ -28,4 +28,4 @@ const index = () => {
 	);
 };
 
-export default index;
+export default Homepage;
