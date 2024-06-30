@@ -1,17 +1,14 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import Custom404 from '../404';
+import ProductForm from '@/components/home/ProductForm';
 
 const Homepage = () => {
 	//for checking user availbale or not !! Show 404 page
 	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
-		console.log(mounted);
-		console.log(localStorage.getItem('loginToken'));
-		if (
-			JSON.parse(localStorage.getItem('userAuth'))===true
-		) {
+		if (JSON.parse(localStorage.getItem('userAuth')) === true) {
 			setMounted(true);
 		} else {
 			setMounted(false);
@@ -23,7 +20,14 @@ const Homepage = () => {
 			<Head>
 				<title>Homepage</title>
 			</Head>
-			{mounted ? <div>Welcome to home page</div> : <Custom404 />}
+			{mounted ? (
+				<>
+					<div>Welcome to home page</div>
+					<ProductForm />
+				</>
+			) : (
+				<Custom404 />
+			)}
 		</>
 	);
 };

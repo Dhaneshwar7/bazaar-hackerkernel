@@ -12,19 +12,21 @@ const Navbar = () => {
 	}, []);
 	if (!mounted) return null;
 	return (
-		<header className="text-white-100 rounded-full w-4/5 m-auto sticky top-0 z-50 bg-gradient-to-r from-rose-600 to-indigo-600 body-font">
-			<div className="container mx-auto flex flex-wrap  p-3 flex-col md:flex-row items-center">
+		<header className="text-white-100 rounded-full max-sm:w-full w-4/5 m-auto sticky top-0 z-50 bg-gradient-to-r  from-rose-600 to-indigo-600 body-font">
+			<div className="container mx-auto flex flex-wrap  p-3 flex-col md:flex-row max-sm:flex-row max-sm:justify-between items-center">
 				<Link
 					href={'/'}
-					className="flex title-font font-extrabold items-center  uppercase text-gray-100"
+					className="flex title-font font-extrabold items-center  uppercase text-gray-100 "
 				>
-					<p className="leading-5 text-xl mx-2">
+					<p className="leading-5 max-sm:text-base text-xl mx-2">
 						<i>BAZZAR HK</i>
 					</p>
-					<Image alt="Navbar Logo" src={'/HKLogo.png'} width={30} height={60} />
+					<Image alt="Navbar Logo" src={'/HKLogo.png'} width={30} height={40} />
 				</Link>
 
-				<nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+				<div></div>
+
+				<nav className="md:ml-auto flex flex-wrap items-center max-sm:flex-row-reverse text-base justify-center">
 					<Link
 						href={'/cart'}
 						className="text-white mr-5 cursor-pointer hover:text-gray-200 flex items-center"
@@ -119,41 +121,41 @@ const Navbar = () => {
 							</Link>
 						</>
 					)}
+					<button
+						onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+						className="text-white bg-black rounded-full p-1  dark:text-black dark:bg-white flex items-center"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							strokeWidth={1.5}
+							stroke="currentColor"
+							className="w-4 h-4"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+							/>
+						</svg>{' '}
+						/
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							strokeWidth="1.5"
+							stroke="currentColor"
+							className="w-5 h-5"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+							/>
+						</svg>
+					</button>
 				</nav>
-				<button
-					onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-					className="text-white bg-black rounded-full p-1  dark:text-black dark:bg-white flex items-center"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						strokeWidth={1.5}
-						stroke="currentColor"
-						className="w-4 h-4"
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-						/>
-					</svg>{' '}
-					/
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						strokeWidth="1.5"
-						stroke="currentColor"
-						className="w-5 h-5"
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-						/>
-					</svg>
-				</button>
 			</div>
 		</header>
 	);
