@@ -1,13 +1,16 @@
-import Layout from "@/components/layouts/Layout";
-import "@/styles/globals.css";
-import { ThemeProvider } from "next-themes";
+import Layout from '@/components/layouts/Layout';
+import '@/styles/globals.css';
+import { BazaarProvider } from '@/utils/BazzarReducer';
+import { ThemeProvider } from 'next-themes';
 
 export default function App({ Component, pageProps }) {
-  return (
+	return (
 		<ThemeProvider attribute="class">
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
+			<BazaarProvider>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			</BazaarProvider>
 		</ThemeProvider>
 	);
 }

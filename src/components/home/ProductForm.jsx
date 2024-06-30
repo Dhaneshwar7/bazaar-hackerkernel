@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
+import { BazaarContext } from '@/utils/BazzarReducer';
+import React, { useContext, useState } from 'react';
+
+import { v4 as uuidv4 } from 'uuid';
 
 const ProductForm = () => {
+	const { state, dispatch } = useContext(BazaarContext);
 	const [productArr, setProductArr] = useState([]);
 	const [product, setProduct] = useState({ pname: '', price: '' });
+
 	const productAddHandle = e => {
 		e.preventDefault();
-		console.log(`${product.pname} + ${product.price}`);
-		console.log('clicked');
-		setProductArr([...productArr, product]);
+		const finalProduct = { ...product, id: uuidv4() };
+		// setProductArr([...productArr, finalProduct]);
 		setProduct({ pname: '', price: '' });
-		console.log(productArr);
+
+		// No product duplicacy checking code is here 
+        const existingProduct = 
+
+		dispatch({
+			type: 'ADDPRODUCT',
+			id: finalProduct.id,
+			pname: product.pname,
+			price: product.price,
+		});
+		// console.log(productArr);
 	};
 	const productChange = e => {
 		setProduct({ ...product, [e.target.name]: e.target.value });
@@ -55,12 +69,12 @@ const ProductForm = () => {
 				</button>
 			</form>
 			<div>
-				{productArr.map((eProd, idx) => (
-					<div key={idx}>
+				{/* {productArr.map((eProd, idx) => (
+					<div key={eProd.id}>
 						<p> {eProd.pname}</p>
 						<h1>{eProd.price}</h1>
 					</div>
-				))}
+				))} */}
 			</div>
 		</>
 	);

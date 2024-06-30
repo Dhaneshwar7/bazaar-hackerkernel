@@ -53,7 +53,7 @@ const Navbar = () => {
 					{JSON.parse(localStorage.getItem('userAuth')) ? (
 						<>
 							<Link
-								href={'/orders'}
+								href={'/homepage'}
 								className="text-white mr-5 cursor-pointer hover:text-gray-200 flex items-center"
 							>
 								My Orders

@@ -12,6 +12,7 @@ const Login = () => {
 	// Form Submission Handle and fetch api which is given and get token;
 	const handleFormSubmit = async e => {
 		e.preventDefault();
+		console.log('submit to ho raha');
 		try {
 			const response = await fetch('https://reqres.in/api/login', {
 				method: 'POST',
@@ -24,13 +25,13 @@ const Login = () => {
 				}),
 			});
 			const res = await response.json();
+			// console.log(res);
 			if (res.token === userAuthToken) {
 				localStorage.setItem('loginToken', res.token);
 				localStorage.setItem('userAuth', true);
 				router.push('/homepage');
 			} else {
-		alert(`${res.error} || Wrong Credintials Please try again`);
-				
+				alert(`${res.error} || Wrong Credintials Please try again`);
 			}
 		} catch (error) {
 			console.log(`login errror${error.message}`);
