@@ -3,6 +3,7 @@ import { createContext, useMemo, useReducer } from 'react';
 const initialState = {
 	products: [],
 	cart: [],
+	searchTerm: '',
 	error: '',
 };
 
@@ -15,7 +16,7 @@ const reducer = (state, action) => {
 					...state.products,
 					{
 						id: action.id,
-						pName: action.pname,
+						pname: action.pname,
 						price: action.price,
 					},
 				],
@@ -32,6 +33,13 @@ const reducer = (state, action) => {
 					},
 				],
 			};
+		case 'SET_SEARCH_TERM':
+			return {
+				...state.searchTerm,
+				searchTerm: action.term,
+			};
+		default:
+			return state;
 	}
 };
 

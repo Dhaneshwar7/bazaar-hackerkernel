@@ -2,6 +2,7 @@ import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useContext, useEffect, useState } from 'react';
+import SearchBar from '../home/SearchBar';
 
 const Navbar = () => {
 	const [mounted, setMounted] = useState(false);
@@ -12,7 +13,7 @@ const Navbar = () => {
 	}, []);
 	if (!mounted) return null;
 	return (
-		<header className="text-white-100 rounded-full max-sm:w-full w-4/5 m-auto sticky top-0 z-50 bg-gradient-to-r  from-rose-600 to-indigo-600 body-font">
+		<header className="text-white-100 max-sm:w-full w-full m-auto sticky top-0 z-50 bg-gradient-to-r  from-rose-600 to-indigo-600 body-font">
 			<div className="container mx-auto flex flex-wrap  p-3 flex-col md:flex-row max-sm:flex-row max-sm:justify-between items-center">
 				<Link
 					href={'/'}
@@ -157,6 +158,7 @@ const Navbar = () => {
 					</button>
 				</nav>
 			</div>
+			<SearchBar></SearchBar>
 		</header>
 	);
 };

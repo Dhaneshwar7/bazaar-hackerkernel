@@ -4,14 +4,24 @@ import React, { useContext, useEffect, useState } from 'react';
 import Custom404 from '../404';
 import ProductForm from '@/components/home/ProductForm';
 import ProductCard from '@/components/home/ProductCard';
+import Footer from '@/components/layouts/Footer';
 
 const Homepage = () => {
 	//for checking user availbale or not !! Show 404 page
 	const [mounted, setMounted] = useState(false);
 	const { state } = useContext(BazaarContext);
+	const [allProducts, setAllProducts] = useState([]);
 
-	const allProducts = state.products;
-	console.log(allProducts);
+	useEffect(() => {
+		if (state.searchTerm) {
+			const sProducts = state.products.filter(product =>
+				product.pname.toLowerCase().includes(state.searchTerm.toLowerCase())
+			);
+			setAllProducts(sProducts);
+		} else {
+			setAllProducts(state.products);
+		}
+	}, [state.searchTerm, state.products]);
 
 	useEffect(() => {
 		const userAuth = JSON.parse(localStorage.getItem('userAuth'));
@@ -20,7 +30,7 @@ const Homepage = () => {
 		} else {
 			setMounted(false);
 		}
-	}, [mounted]);
+	}, []);
 
 	return (
 		<>
@@ -29,11 +39,30 @@ const Homepage = () => {
 			</Head>
 			{mounted ? (
 				<>
-					<div>Welcome to home page</div>
-					<ProductForm />
-					{allProducts?.map((data, idx) => (
-						<ProductCard key={idx} productDetails={data} />
-					))}
+					{/* <div>Welcome to home page</div> */}
+					<div className="ProductListing bg-white min-h-screen flex max-sm:flex-wrap relative">
+						<div className="mx-auto flex-none max-w-52 h-full  bg-slate-600 sticky top-0 right-0 py-36">
+							<ProductForm />
+						</div>
+						<div className="mx-auto grow w-full h-full max-w-2xl px-8 mb-20 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-12">
+							<h2 className=" mb-6 text-black text-2xl">Products</h2>
+							<div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+								{allProducts.length > 0 ? (
+									allProducts?.map((data, idx) => (
+										<ProductCard key={idx} productDetails={data} />
+									))
+								) : (
+									<div className="text-black">“No Product Found”</div>
+								)}
+							</div>
+						</div>
+						<div className="mx-auto flex-none max-w-xs h-full py-36 bg-slate-600 sticky top-0 right-0">
+							<ProductForm />
+						</div>
+						<div className="absolute w-full bottom-0">
+							<Footer />
+						</div>
+					</div>
 				</>
 			) : (
 				<Custom404 />
