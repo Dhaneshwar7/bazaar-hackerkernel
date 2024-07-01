@@ -11,19 +11,28 @@ const Homepage = () => {
 	const [mounted, setMounted] = useState(false);
 	const { state } = useContext(BazaarContext);
 	const [allProducts, setAllProducts] = useState([]);
-	console.log(`this searhc${state.searchTerm}`);
+	const [side, setSide] = useState(state.sidebarForm);
+	
+	console.log(`this side bar value --- ${state.sidebarForm}`);
+	// console.log(`this search value --- ${state.searchTerm}`);
+	useEffect(() => {
+		setSide(state.sidebarForm)
+		console.log(`this is sidebar ----- ${state.sidebarForm}`);
+		console.log(`printing${side}`);
+	}, [state.sidebarForm]);
 
 	useEffect(() => {
-		console.log(state.searchTerm);
+		// console.log(state.searchTerm);
 		if (state.products) {
-			console.log('search state product tak');
+			// console.log('search state product tak');
 			if (state.searchTerm) {
-				console.log('search term ke andar tak');
+				// console.log('search term ke andar tak');
 				let sProd = state.products;
 				const sProducts = sProd.filter(product =>
 					product.pname.toLowerCase().includes(state.searchTerm.toLowerCase())
 				);
 				setAllProducts(sProducts);
+				// console.log(allProducts);
 			} else {
 				setAllProducts(state.products);
 			}
@@ -47,23 +56,37 @@ const Homepage = () => {
 			{mounted ? (
 				<>
 					{/* <div>Welcome to home page</div> */}
-					<div className="ProductListing bg-white min-h-[86vh] flex max-sm:flex-wrap relative">
-						<div className="mx-auto flex-none max-w-52 h-full  bg-slate-600 sticky top-0 right-0 py-36">
+					<div className="Homepage-box bg-white min-h-[86vh] dark:bg-slate-900 flex max-sm:flex-wrap relative">
+						{/* <div className="mx-auto flex-none max-w-52 h-full  bg-slate-600 sticky top-0 right-0 py-36">
 							<ProductForm />
-						</div>
-						<div className="mx-auto grow w-full h-full max-w-2xl px-8 mb-20 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-12">
-							<h2 className=" mb-6 text-black text-2xl">Products</h2>
+						</div> */}
+						<div className="Productlisting-box mx-auto pt-12  grow w-full h-full max-w-2xl px-8 mb-20 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-12">
+							<h2 className=" mb-6 text-black text-2xl dark:text-white py-1 px-3 bg-slate-300  dark:bg-slate-700 rounded ">
+								Products
+							</h2>
 							<div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
 								{allProducts.length > 0 ? (
 									allProducts?.map((data, idx) => (
 										<ProductCard key={idx} productDetails={data} />
 									))
 								) : (
-									<div className="text-black">“No Product Found”</div>
+									<div className="flex flex-col items-center justify-center h-full col-span-full bg-zinc-400 bg-opacity-5 p-16">
+										<div className="text-red-600 dark:text-red-500 text-4xl font-bold text-center">
+											No Product Found !!!
+										</div>
+										<div className="text-black dark:text-white text-lg mt-4 text-center">
+											Add products to see them here.
+										</div>
+									</div>
 								)}
 							</div>
 						</div>
-						<div className="mx-auto flex-none max-w-xs h-full py-36 bg-slate-600 sticky top-0 right-0">
+						{/* This is Product Form which handle thorough Add Product from Nav bar */}
+						<div
+							className={`mx-auto max-w-sm transition px-16 rounded drop-shadow-lg  ease-in-out delay-100 h-full pt-36 pb-60 border-l-[.5px] border-b-slate-600  dark:border-b-slate-900 dark:dark:bg-slate-800  bg-slate-100 sticky top-0 right-0  ${
+								state.sidebarForm ? 'scale-0 hidden' : 'scale-100'
+							}`}
+						>
 							<ProductForm />
 						</div>
 						<div className="absolute w-full bottom-0">

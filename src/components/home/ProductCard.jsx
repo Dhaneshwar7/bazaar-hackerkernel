@@ -5,7 +5,11 @@ const ProductCard = props => {
 
 	return (
 		<>
-			<a key={product.id} href={'/'} className="group">
+			<a
+				key={product.id}
+				href={'/'}
+				className="group bg-slate-300 rounded drop-shadow-xl dark:bg-neutral-300  p-2"
+			>
 				<div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
 					<img
 						src={

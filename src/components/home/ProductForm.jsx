@@ -42,41 +42,44 @@ const ProductForm = () => {
 	};
 	return (
 		<>
-			<div className="container bg-transparent w-full max-w-lg">
+			<div className="container bg-transparent pb-48 w-full max-w-lg">
+				<h2 className=" mb-6 text-black text-lg font-bold dark:text-white py-1 px-3 bg-slate-300  dark:bg-slate-700 rounded ">
+					Fill Products Details
+				</h2>
 				<form onSubmit={productAddHandle}>
 					<label
 						htmlFor="pname"
-						className="block text-gray-700  dark:text-gray-300 text-sm font-bold mb-2"
+						className="block text-gray-800 dark:text-gray-300 text-sm font-bold mb-2"
 					>
 						Product Name
 					</label>
 					<input
-						placeholder="Enter your Product Name"
+						placeholder="Product Name"
 						onChange={productChange}
 						value={product.pname}
 						name="pname"
 						type="text"
 						required
-						className="shadow appearance-none border border-gray-300 rounded w-full py-2 px-4 focus:border-indigo-700 text-gray-700 dark:text-gray-100  leading-tight focus:outline-none focus:shadow-outline"
+						className="shadow appearance-none border border-gray-300 rounded w-full py-2 px-4 focus:border-indigo-700 text-gray-800 dark:text-gray-100  leading-tight focus:outline-none focus:shadow-outline"
 					/>
 					<label
 						htmlFor="price"
-						className="block text-gray-700  dark:text-gray-300 text-sm font-bold mb-2"
+						className="block text-gray-800 mt-3  dark:text-gray-300 text-sm font-bold mb-2"
 					>
 						Price
 					</label>
 					<input
-						placeholder="Enter your Product Price"
+						placeholder="Product Price"
 						onChange={productChange}
 						value={product.price}
 						name="price"
-						type="text"
+						type="number"
 						required
 						className="shadow appearance-none border border-gray-300 rounded w-full py-2 px-4 focus:border-indigo-700 text-gray-700 dark:text-gray-100  leading-tight focus:outline-none focus:shadow-outline"
 					/>
 					<button
 						type="submit"
-						className="border m-auto  text-gray-900 dark:text-gray-100 font-bold dark:border-gray-400 border-gray-900 rounded mr-2 p-2 hover:bg-gradient-to-r from-gray-500 to-zinc-300 hover:text-gray-100"
+						className="border m-auto  mt-3 self-center text-gray-900 dark:text-gray-100 font-bold dark:border-gray-400 border-gray-900 rounded mr-2 p-2 hover:bg-gradient-to-r from-green-800 to-green-700 hover:text-gray-100"
 					>
 						Add Product
 					</button>

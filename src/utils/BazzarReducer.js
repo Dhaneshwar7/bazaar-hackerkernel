@@ -3,8 +3,9 @@ import { createContext, useMemo, useReducer } from 'react';
 const initialState = {
 	products: [],
 	cart: [],
-	searchTerm: null,
+	searchTerm: '',
 	error: '',
+	sidebarForm: false,
 };
 
 const reducer = (state, action) => {
@@ -37,6 +38,11 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				searchTerm: action.term,
+			};
+		case 'SET_PRODUCT_SLIDE':
+			return {
+				...state,
+				sidebarForm: action.sidebar,
 			};
 		default:
 			return state;
