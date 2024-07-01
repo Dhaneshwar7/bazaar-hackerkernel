@@ -9,7 +9,7 @@ export default function Home() {
 	return (
 		<>
 			<main
-				className={`flex min-h-[82vh] flex-col items-center  justify-center px-10 pt-2 pb-10 ${inter.className}`}
+				className={`relative flex min-h-[82vh] flex-col items-center  justify-center px-10 pt-2 pb-10 ${inter.className}`}
 			>
 				<Login />
 				<div className="absolute w-full bottom-0">
