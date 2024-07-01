@@ -39,11 +39,11 @@ const ProductForm = () => {
 	};
 	return (
 		<>
-			<div className="container bg-transparent pb-48 w-full max-w-lg ">
-				<h2 className=" mb-6 text-black text-lg font-bold dark:text-white py-1 px-3 bg-slate-300  dark:bg-slate-700 rounded ">
+			<div className="container bg-transparent pb-48 max-sm:pb-3 w-full max-w-lg ">
+				<h2 className=" mb-6 text-black text-lg font-bold max-sm:text-base max-sm:mb-2 dark:text-white py-1 px-3 bg-slate-300  dark:bg-slate-700 rounded ">
 					Fill Products Details
 				</h2>
-				<form onSubmit={productAddHandle} className='bg-slate-300 p-4 rounded dark:bg-slate-500'>
+				<form onSubmit={productAddHandle} className='bg-slate-300 p-4 max-sm:py-2 rounded dark:bg-slate-500'>
 					<label
 						htmlFor="pname"
 						className="block text-gray-800 dark:text-gray-300 text-sm font-bold mb-2"
@@ -76,7 +76,7 @@ const ProductForm = () => {
 					/>
 					<button
 						type="submit"
-						className="border m-auto  mt-3 self-center text-gray-900 dark:text-gray-100 font-bold dark:border-gray-400 border-gray-900 rounded mr-2 p-2 hover:bg-gradient-to-r from-green-800 to-green-700 hover:text-gray-100"
+						className="border m-auto max-sm:text-base max-sm:px-4 max-sm:py-1  mt-3 self-center text-gray-900 dark:text-gray-100 font-bold dark:border-gray-400 border-gray-900 rounded mr-2 p-2 hover:bg-gradient-to-r from-green-800 to-green-700 hover:text-gray-100"
 					>
 						Add Product
 					</button>

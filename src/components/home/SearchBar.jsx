@@ -3,7 +3,7 @@ import { useDebounce } from '@/utils/useDebounce';
 import React, { useContext, useEffect, useState } from 'react';
 
 const SearchBar = () => {
-	const {state, dispatch } = useContext(BazaarContext);
+	const { state, dispatch } = useContext(BazaarContext);
 	const [sidebar, setSidebar] = useState(true);
 	const [search, setSearch] = useState('');
 	const { debouncedValue: debouncedSearch, loading } = useDebounce(search, 700);
@@ -12,14 +12,10 @@ const SearchBar = () => {
 	const Sidebarhandle = () => {
 		setSidebar(prevState => !prevState);
 		// console.log(`search bar ka ${sidebar}`);
-
-
 	};
 	useEffect(() => {
 		dispatch({ type: 'SET_PRODUCT_SLIDE', sidebar: sidebar });
-
-	}, [sidebar])
-	
+	}, [sidebar]);
 
 	const handleSearchChange = e => {
 		setSearch(e.target.value);
@@ -37,10 +33,10 @@ const SearchBar = () => {
 	return (
 		<>
 			<header className="text-white-100 w-full z-20 max-sm:w-full m-auto sticky top-0 border-r-[.5px] border-b-[.5px] drop-shadow-lg dark:border-b-slate-100  bg-slate-200 dark:bg-slate-800 dark:text-gray-100">
-				<div className="container mx-auto flex flex-wrap justify-between  p-1 flex-col md:flex-row max-sm:flex-row max-sm:justify-between items-center">
-					<form action="/search">
+				<div className="container mx-auto flex flex-wrap justify-between max-sm:flex max-sm:px-3 max-sm:items-center  p-1 flex-col md:flex-row max-sm:flex-row max-sm:justify-between items-center">
+					<form action="/search" className="max-sm:w-2/3">
 						<label
-							className="mx-auto mt-1 relative bg-white min-w-xl max-w-2xl flex flex-col md:flex-row items-center justify-center border py-1 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300"
+							className="mx-auto mt-1 max-sm:mt-0 relative max-sm:flex max-sm:justify-betwee max-sm:whitespace-nowrap max-sm:flex-row bg-white min-w-xl max-w-2xl max-sm:max-w-sm flex flex-col md:flex-row items-center justify-center border py-1 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300"
 							htmlFor="search"
 						>
 							<input
@@ -49,11 +45,11 @@ const SearchBar = () => {
 								name="search"
 								required={true}
 								onChange={handleSearchChange}
-								className="px-10 text-black py-1 w-full rounded-md flex-1 outline-none bg-white"
+								className="px-10 text-black py-1 max-sm:py-0 w-full max-sm:w-2/3 max-sm:px-2 rounded-md flex-1 outline-none bg-white"
 							/>
 							<button
 								type="submit"
-								className="w-full md:w-auto px-6 py-2 bg-black border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all"
+								className="w-full md:w-auto px-6 max-sm:p-1 py-2 max-sm:w-1/4 bg-black border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all"
 							>
 								<div className="flex items-center transition-all opacity-1">
 									{loading ? (
@@ -61,7 +57,7 @@ const SearchBar = () => {
 											.....
 										</span>
 									) : (
-										<span className="text-sm font-semibold whitespace-nowrap truncate mx-auto">
+										<span className="text-sm max-sm:text-xs font-semibold whitespace-nowrap truncate mx-auto">
 											Search
 										</span>
 									)}
@@ -72,10 +68,10 @@ const SearchBar = () => {
 					{/* this is Product add form opener */}
 					<button
 						onClick={Sidebarhandle}
-						className="w-full md:w-auto px-6 py-2 items-end  bg-slate-900 dark:bg-slate-100 dark:text-black  border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all"
+						className="w-full md:w-auto px-6 py-2 items-end max-sm:px-3 max-sm:py-2  max-sm:w-1/3 bg-slate-900 dark:bg-slate-100 dark:text-black  border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all"
 					>
 						<div className="flex items-center justify-center transition-all opacity-1">
-							<span className="text-sm flex items-center justify-between gap-1 font-semibold whitespace-nowrap truncate mx-auto">
+							<span className="max-sm:text-xs max-sm:w-full max-sm:p-0 flex items-center justify-between gap-1 font-semibold whitespace-nowrap truncate mx-auto">
 								Add Product{' '}
 								{sidebar ? (
 									<svg

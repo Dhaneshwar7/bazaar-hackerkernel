@@ -22,10 +22,10 @@ function Footer() {
 					</p>
 				</Link>
 				<div className="text-sm w-full text-gray-100 sm:ml-4 flex flex-col md:flex-row items-center gap-1 justify-between sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-0 md:mt-4">
-					<h3 className="text-center">
-						Copyright © 2024 <br /> BazaarEcommerce HackerKernel
+					<h3 className="text-center max-sm:text-xs max-sm:whitespace-nowrap">
+						Copyright © 2024 BazaarEcommerce HackerKernel
 					</h3>
-					<h3 className="px-5 ml-2 text-center">
+					<h3 className="px-5 ml-2 text-center max-sm:py-2 max-sm:mb-2">
 						Task Developed by{'  '}
 						<a
 							className="text-white text-base px-2 py-1 md:bg-slate-900 bg-slate-900 rounded"

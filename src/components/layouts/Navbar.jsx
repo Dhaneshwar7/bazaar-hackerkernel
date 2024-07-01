@@ -14,12 +14,12 @@ const Navbar = () => {
 	if (!mounted) return null;
 	return (
 		<header className="text-white-100 max-sm:w-full w-full m-auto sticky top-0 z-50 bg-gradient-to-r from-cyan-800  to-indigo-600 body-font">
-			<div className="container mx-auto flex flex-wrap  p-3 flex-col md:flex-row max-sm:flex-row max-sm:justify-between items-center">
+			<div className="container mx-auto flex flex-wrap max-sm:py-5  p-3 flex-col md:flex-row max-sm:flex-row max-sm:justify-between items-center">
 				<Link
 					href={'/'}
 					className="flex title-font font-extrabold items-center  uppercase text-gray-100 "
 				>
-					<span className="animate-text-gradient bg-gradient-to-r leading-5 max-sm:text-base text-xl mx-2 from-[#f4b7d7] via-[#96ebde]  to-[#e4707f] bg-[200%_auto] bg-clip-text text-transparent">
+					<span className="animate-text-gradient max-sm:hidden bg-gradient-to-r leading-5 max-sm:text-base text-xl mx-2 from-[#f4b7d7] via-[#96ebde]  to-[#e4707f] bg-[200%_auto] bg-clip-text text-transparent">
 						BAZZAR HK
 					</span>
 					<Image
@@ -33,12 +33,12 @@ const Navbar = () => {
 
 				<div></div>
 
-				<nav className="md:ml-auto flex flex-wrap items-center max-sm:flex-row-reverse text-base justify-center">
+				<nav className="md:ml-auto flex flex-wrap items-center max-sm:flex text-base justify-center">
 					{JSON.parse(localStorage.getItem('userAuth')) ? (
 						<>
 							<Link
 								href={'/homepage'}
-								className="text-white mr-5 cursor-pointer hover:text-gray-200 flex items-center"
+								className="text-white mr-5 cursor-pointer max-sm:text-xs hover:text-gray-200 flex items-center"
 							>
 								All Products
 								<svg
@@ -58,7 +58,7 @@ const Navbar = () => {
 							</Link>
 							<Link
 								href={'/'}
-								className="text-white mr-5 cursor-pointer hover:text-gray-200 flex items-center"
+								className="text-white mr-5 cursor-pointer max-sm:text-xs hover:text-gray-200 flex items-center"
 								onClick={() => {
 									localStorage.removeItem('userAuth');
 									localStorage.removeItem('loginToken');

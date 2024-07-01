@@ -51,15 +51,15 @@ const Homepage = () => {
 			{mounted ? (
 				<>
 					{/* <div>Welcome to home page</div> */}
-					<div className="Homepage-box bg-zinc-100 min-h-[86vh] dark:bg-slate-900 flex max-sm:flex-wrap relative">
+					<div className="Homepage-box bg-zinc-100 min-h-[86vh] dark:bg-slate-900 flex max-sm:flex-col-reverse max-sm:flex-wrap relative">
 						{/* <div className="mx-auto flex-none max-w-52 h-full  bg-slate-600 sticky top-0 right-0 py-36">
 							<ProductForm />
 						</div> */}
-						<div className="Productlisting-box mx-auto pt-12  grow w-full h-full max-w-2xl px-8 mb-20 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-12">
+						<div className="Productlisting-box mx-auto pt-12 max-sm:mb-40 grow w-full h-full max-w-2xl px-8 mb-20 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-12">
 							<h2 className=" mb-6 text-black text-2xl dark:text-white py-1 px-3 bg-slate-300  dark:bg-slate-700 rounded ">
 								Products
 							</h2>
-							<div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+							<div className="grid grid-cols-1 max-sm:grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
 								{allProducts.length > 0 ? (
 									allProducts?.map((data, idx) => (
 										<ProductCard
@@ -82,7 +82,7 @@ const Homepage = () => {
 						</div>
 						{/* This is Product Form which handle thorough Add Product from Nav bar */}
 						<div
-							className={`mx-auto max-w-sm transition px-16 rounded drop-shadow-lg  ease-in-out delay-100 h-full pt-36 pb-60 border-l-[.5px] border-t-[.5px] border-b-slate-600  dark:border-b-slate-900 dark:bg-slate-800  bg-slate-200 sticky top-0 right-0  ${
+							className={`mx-auto max-w-sm transition px-16 rounded drop-shadow-lg max-sm:px-12 max-sm:py-3  ease-in-out delay-100 h-full pt-36 pb-60 border-l-[.5px] border-t-[.5px] border-b-slate-600  dark:border-b-slate-900 dark:bg-slate-800  bg-slate-200 sticky top-0 right-0  ${
 								state.sidebarForm ? 'scale-0 hidden' : 'scale-100'
 							}`}
 						>
