@@ -1,5 +1,5 @@
 import { BazaarContext } from '@/utils/BazzarReducer';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 const SearchBar = () => {
 	const { dispatch } = useContext(BazaarContext);
