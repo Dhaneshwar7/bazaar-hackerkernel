@@ -22,7 +22,13 @@ const Navbar = () => {
 					<p className="leading-5 max-sm:text-base text-xl mx-2">
 						<i>BAZZAR HK</i>
 					</p>
-					<Image alt="Navbar Logo" src={'/HKLogo.png'} width={30} height={40} />
+					<Image
+						alt="Navbar Logo"
+						src={'/HKLogo.png'}
+						style={{ width: 'auto', height: 'auto' }}
+						width={30}
+						height={40}
+					/>
 				</Link>
 
 				<div></div>
@@ -159,6 +165,7 @@ const Navbar = () => {
 				</nav>
 			</div>
 			<SearchBar></SearchBar>
+			
 		</header>
 	);
 };

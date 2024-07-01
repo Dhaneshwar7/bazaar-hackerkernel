@@ -11,15 +11,22 @@ const Homepage = () => {
 	const [mounted, setMounted] = useState(false);
 	const { state } = useContext(BazaarContext);
 	const [allProducts, setAllProducts] = useState([]);
+	console.log(`this searhc${state.searchTerm}`);
 
 	useEffect(() => {
-		if (state.searchTerm) {
-			const sProducts = state.products.filter(product =>
-				product.pname.toLowerCase().includes(state.searchTerm.toLowerCase())
-			);
-			setAllProducts(sProducts);
-		} else {
-			setAllProducts(state.products);
+		console.log(state.searchTerm);
+		if (state.products) {
+			console.log('search state product tak');
+			if (state.searchTerm) {
+				console.log('search term ke andar tak');
+				let sProd = state.products;
+				const sProducts = sProd.filter(product =>
+					product.pname.toLowerCase().includes(state.searchTerm.toLowerCase())
+				);
+				setAllProducts(sProducts);
+			} else {
+				setAllProducts(state.products);
+			}
 		}
 	}, [state.searchTerm, state.products]);
 
@@ -40,7 +47,7 @@ const Homepage = () => {
 			{mounted ? (
 				<>
 					{/* <div>Welcome to home page</div> */}
-					<div className="ProductListing bg-white min-h-screen flex max-sm:flex-wrap relative">
+					<div className="ProductListing bg-white min-h-[86vh] flex max-sm:flex-wrap relative">
 						<div className="mx-auto flex-none max-w-52 h-full  bg-slate-600 sticky top-0 right-0 py-36">
 							<ProductForm />
 						</div>
