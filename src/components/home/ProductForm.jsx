@@ -14,8 +14,7 @@ const ProductForm = () => {
 
 	const productAddHandle = async e => {
 		e.preventDefault();
-		// const allProducts = await state.products;
-		// console.log(allProducts);
+
 		const finalProduct = { ...product, id: uuidv4() };
 
 		// No product duplicacy checking code is here
@@ -26,15 +25,13 @@ const ProductForm = () => {
 			alert('Product is Already Available with this Name');
 			return;
 		}
-
 		dispatch({
 			type: 'ADDPRODUCT',
 			id: finalProduct.id,
 			pname: product.pname,
 			price: product.price,
 		});
-		// console.log(productArr);
-
+		// For Clearing Input fields
 		setProduct({ pname: '', price: '' });
 	};
 	const productChange = e => {
@@ -42,11 +39,11 @@ const ProductForm = () => {
 	};
 	return (
 		<>
-			<div className="container bg-transparent pb-48 w-full max-w-lg">
+			<div className="container bg-transparent pb-48 w-full max-w-lg ">
 				<h2 className=" mb-6 text-black text-lg font-bold dark:text-white py-1 px-3 bg-slate-300  dark:bg-slate-700 rounded ">
 					Fill Products Details
 				</h2>
-				<form onSubmit={productAddHandle}>
+				<form onSubmit={productAddHandle} className='bg-slate-300 p-4 rounded dark:bg-slate-500'>
 					<label
 						htmlFor="pname"
 						className="block text-gray-800 dark:text-gray-300 text-sm font-bold mb-2"

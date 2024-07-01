@@ -44,6 +44,14 @@ const reducer = (state, action) => {
 				...state,
 				sidebarForm: action.sidebar,
 			};
+		case 'REMOVE_PRODUCT':
+			let updatedProducts = [...state.products];
+			updatedProducts.splice(action.index, 1);
+			return {
+				...state,
+				products: updatedProducts,
+			};
+
 		default:
 			return state;
 	}

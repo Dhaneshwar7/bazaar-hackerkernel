@@ -7,22 +7,17 @@ import ProductCard from '@/components/home/ProductCard';
 import Footer from '@/components/layouts/Footer';
 
 const Homepage = () => {
-	//for checking user availbale or not !! Show 404 page
+	//for mount checking user availbale or not !! Show 404 page
 	const [mounted, setMounted] = useState(false);
-	const { state } = useContext(BazaarContext);
+	const { state ,dispatch} = useContext(BazaarContext);
 	const [allProducts, setAllProducts] = useState([]);
 	const [side, setSide] = useState(state.sidebarForm);
-	
-	console.log(`this side bar value --- ${state.sidebarForm}`);
-	// console.log(`this search value --- ${state.searchTerm}`);
+
 	useEffect(() => {
-		setSide(state.sidebarForm)
-		console.log(`this is sidebar ----- ${state.sidebarForm}`);
-		console.log(`printing${side}`);
+		setSide(state.sidebarForm);
 	}, [state.sidebarForm]);
 
 	useEffect(() => {
-		// console.log(state.searchTerm);
 		if (state.products) {
 			// console.log('search state product tak');
 			if (state.searchTerm) {
@@ -56,7 +51,7 @@ const Homepage = () => {
 			{mounted ? (
 				<>
 					{/* <div>Welcome to home page</div> */}
-					<div className="Homepage-box bg-white min-h-[86vh] dark:bg-slate-900 flex max-sm:flex-wrap relative">
+					<div className="Homepage-box bg-zinc-100 min-h-[86vh] dark:bg-slate-900 flex max-sm:flex-wrap relative">
 						{/* <div className="mx-auto flex-none max-w-52 h-full  bg-slate-600 sticky top-0 right-0 py-36">
 							<ProductForm />
 						</div> */}
@@ -67,7 +62,11 @@ const Homepage = () => {
 							<div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
 								{allProducts.length > 0 ? (
 									allProducts?.map((data, idx) => (
-										<ProductCard key={idx} productDetails={data} />
+										<ProductCard
+											key={idx}
+											productDetails={data}
+											index={idx}
+										/>
 									))
 								) : (
 									<div className="flex flex-col items-center justify-center h-full col-span-full bg-zinc-400 bg-opacity-5 p-16">
@@ -83,7 +82,7 @@ const Homepage = () => {
 						</div>
 						{/* This is Product Form which handle thorough Add Product from Nav bar */}
 						<div
-							className={`mx-auto max-w-sm transition px-16 rounded drop-shadow-lg  ease-in-out delay-100 h-full pt-36 pb-60 border-l-[.5px] border-b-slate-600  dark:border-b-slate-900 dark:dark:bg-slate-800  bg-slate-100 sticky top-0 right-0  ${
+							className={`mx-auto max-w-sm transition px-16 rounded drop-shadow-lg  ease-in-out delay-100 h-full pt-36 pb-60 border-l-[.5px] border-t-[.5px] border-b-slate-600  dark:border-b-slate-900 dark:bg-slate-800  bg-slate-200 sticky top-0 right-0  ${
 								state.sidebarForm ? 'scale-0 hidden' : 'scale-100'
 							}`}
 						>

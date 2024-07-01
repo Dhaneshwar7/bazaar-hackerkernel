@@ -8,6 +8,16 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			animation: {
+				'text-gradient': 'text 1.5s linear infinite',
+			},
+			keyframes: {
+				text: {
+					to: {
+						backgroundPosition: '200% center',
+					},
+				},
+			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic':

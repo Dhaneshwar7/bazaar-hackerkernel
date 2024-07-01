@@ -11,7 +11,7 @@ const SearchBar = () => {
 
 	const Sidebarhandle = () => {
 		setSidebar(prevState => !prevState);
-		console.log(`search bar ka ${sidebar}`);
+		// console.log(`search bar ka ${sidebar}`);
 
 
 	};
@@ -36,7 +36,7 @@ const SearchBar = () => {
 
 	return (
 		<>
-			<header className="text-white-100 w-full z-20 max-sm:w-full m-auto sticky top-0  bg-slate-100 dark:bg-slate-800 dark:text-gray-100">
+			<header className="text-white-100 w-full z-20 max-sm:w-full m-auto sticky top-0 border-r-[.5px] border-b-[.5px] drop-shadow-lg dark:border-b-slate-100  bg-slate-200 dark:bg-slate-800 dark:text-gray-100">
 				<div className="container mx-auto flex flex-wrap justify-between  p-1 flex-col md:flex-row max-sm:flex-row max-sm:justify-between items-center">
 					<form action="/search">
 						<label

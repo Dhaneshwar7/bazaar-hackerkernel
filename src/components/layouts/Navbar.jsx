@@ -13,15 +13,15 @@ const Navbar = () => {
 	}, []);
 	if (!mounted) return null;
 	return (
-		<header className="text-white-100 max-sm:w-full w-full m-auto sticky top-0 z-50 bg-gradient-to-r  from-rose-600 to-indigo-600 body-font">
+		<header className="text-white-100 max-sm:w-full w-full m-auto sticky top-0 z-50 bg-gradient-to-r from-cyan-800  to-indigo-600 body-font">
 			<div className="container mx-auto flex flex-wrap  p-3 flex-col md:flex-row max-sm:flex-row max-sm:justify-between items-center">
 				<Link
 					href={'/'}
 					className="flex title-font font-extrabold items-center  uppercase text-gray-100 "
 				>
-					<p className="leading-5 max-sm:text-base text-xl mx-2">
-						<i>BAZZAR HK</i>
-					</p>
+					<span className="animate-text-gradient bg-gradient-to-r leading-5 max-sm:text-base text-xl mx-2 from-[#f4b7d7] via-[#96ebde]  to-[#e4707f] bg-[200%_auto] bg-clip-text text-transparent">
+						BAZZAR HK
+					</span>
 					<Image
 						alt="Navbar Logo"
 						src={'/HKLogo.png'}
@@ -142,7 +142,6 @@ const Navbar = () => {
 				</nav>
 			</div>
 			<SearchBar></SearchBar>
-			
 		</header>
 	);
 };
