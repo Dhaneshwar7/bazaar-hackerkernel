@@ -10,6 +10,7 @@ const ProductForm = () => {
 
 	useEffect(() => {
 		setProductArr(state.products);
+		localStorage.setItem('products', JSON.stringify( state.products))
 	}, [state.products]);
 
 	const productAddHandle = async e => {
